@@ -3,6 +3,7 @@
 
 package com.app.repository;
 
+import com.app.dto.StudentSearchDto;
 import com.app.model.Student;
 import com.app.repository.StudentRepositoryCustom;
 import io.springlets.data.domain.GlobalSearch;
@@ -30,5 +31,23 @@ privileged aspect StudentRepositoryCustom_Roo_Jpa_Repository_Custom {
      * @return Page
      */
     public abstract Page<Student> StudentRepositoryCustom.findAllByIdsIn(List<Long> ids, GlobalSearch globalSearch, Pageable pageable);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param formBean
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public abstract Page<Student> StudentRepositoryCustom.findByFirstNameAndLastName(StudentSearchDto formBean, GlobalSearch globalSearch, Pageable pageable);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param formBean
+     * @return Long
+     */
+    public abstract long StudentRepositoryCustom.countByFirstNameAndLastName(StudentSearchDto formBean);
     
 }

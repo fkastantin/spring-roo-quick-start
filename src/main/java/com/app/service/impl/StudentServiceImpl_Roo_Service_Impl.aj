@@ -3,6 +3,7 @@
 
 package com.app.service.impl;
 
+import com.app.dto.StudentSearchDto;
 import com.app.model.Course;
 import com.app.model.Student;
 import com.app.repository.StudentRepository;
@@ -275,6 +276,28 @@ privileged aspect StudentServiceImpl_Roo_Service_Impl {
      */
     public Page<Student> StudentServiceImpl.findAllByIdsIn(List<Long> ids, GlobalSearch globalSearch, Pageable pageable) {
         return getStudentRepository().findAllByIdsIn(ids, globalSearch, pageable);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param formBean
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public Page<Student> StudentServiceImpl.findByFirstNameAndLastName(StudentSearchDto formBean, GlobalSearch globalSearch, Pageable pageable) {
+        return getStudentRepository().findByFirstNameAndLastName(formBean, globalSearch, pageable);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param formBean
+     * @return Long
+     */
+    public long StudentServiceImpl.countByFirstNameAndLastName(StudentSearchDto formBean) {
+        return getStudentRepository().countByFirstNameAndLastName(formBean);
     }
     
     /**

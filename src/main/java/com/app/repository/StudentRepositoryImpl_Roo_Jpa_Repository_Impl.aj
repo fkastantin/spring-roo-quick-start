@@ -3,9 +3,11 @@
 
 package com.app.repository;
 
+import com.app.dto.StudentSearchDto;
 import com.app.model.QStudent;
 import com.app.model.Student;
 import com.app.repository.StudentRepositoryImpl;
+import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Path;
 import com.querydsl.jpa.JPQLQuery;
 import io.springlets.data.domain.GlobalSearch;
@@ -93,6 +95,72 @@ privileged aspect StudentRepositoryImpl_Roo_Jpa_Repository_Impl {
         applyOrderById(query);
         
         return loadPage(query, pageable, student);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param formBean
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public Page<Student> StudentRepositoryImpl.findByFirstNameAndLastName(StudentSearchDto formBean, GlobalSearch globalSearch, Pageable pageable) {
+        
+        QStudent student = QStudent.student;
+        
+        JPQLQuery<Student> query = from(student);
+        
+        if (formBean != null) {
+        BooleanBuilder searchCondition = new BooleanBuilder();
+                if (formBean.getFirstName() != null) {
+                        searchCondition.and(student.firstName.eq(formBean.getFirstName()));
+                }
+                if (formBean.getLastName() != null) {
+                        searchCondition.and(student.lastName.eq(formBean.getLastName()));
+                }
+        if (searchCondition.hasValue()) {
+            query.where(searchCondition);
+        }
+        }
+        
+        Path<?>[] paths = new Path<?>[] {student.firstName,student.lastName,student.birthdate};        
+        applyGlobalSearch(globalSearch, query, paths);
+        
+        AttributeMappingBuilder mapping = buildMapper()
+			.map(FIRST_NAME, student.firstName)
+			.map(LAST_NAME, student.lastName)
+			.map(BIRTHDATE, student.birthdate);
+        
+        applyPagination(pageable, query, mapping);
+        applyOrderById(query);
+        
+        return loadPage(query, pageable, student);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param formBean
+     * @return Long
+     */
+    public long StudentRepositoryImpl.countByFirstNameAndLastName(StudentSearchDto formBean) {
+        
+        QStudent student = QStudent.student;
+        
+        JPQLQuery<Student> query = from(student);
+        
+        BooleanBuilder searchCondition = new BooleanBuilder();
+                if (formBean.getFirstName() != null) {
+                        searchCondition.and(student.firstName.eq(formBean.getFirstName()));
+                }
+                if (formBean.getLastName() != null) {
+                        searchCondition.and(student.lastName.eq(formBean.getLastName()));
+                }
+        if (searchCondition.hasValue()) {
+            query.where(searchCondition);
+        }
+        return query.fetchCount();
     }
     
 }

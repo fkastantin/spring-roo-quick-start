@@ -3,6 +3,7 @@
 
 package com.app.service.api;
 
+import com.app.dto.StudentSearchDto;
 import com.app.model.Student;
 import com.app.service.api.StudentService;
 import io.springlets.data.domain.GlobalSearch;
@@ -125,5 +126,23 @@ privileged aspect StudentService_Roo_Service {
      * @return Student
      */
     public abstract Student StudentService.setRegisteredCourses(Student student, Iterable<Long> registeredCourses);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param formBean
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public abstract Page<Student> StudentService.findByFirstNameAndLastName(StudentSearchDto formBean, GlobalSearch globalSearch, Pageable pageable);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param formBean
+     * @return Long
+     */
+    public abstract long StudentService.countByFirstNameAndLastName(StudentSearchDto formBean);
     
 }

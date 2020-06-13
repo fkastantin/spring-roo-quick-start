@@ -18,3 +18,5 @@ web mvc controller --all --responseType THYMELEAF
 dto --class ~.dto.StudentSearchDto
 field string --fieldName firstName
 field string --fieldName lastName
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-06-13 21:31:00
+finder add --entity ~.model.Student --name findByFirstNameAndLastName --formBean ~.dto.StudentSearchDto
