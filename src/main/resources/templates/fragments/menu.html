@@ -49,6 +49,7 @@
                  <ul class="dropdown-menu">
 	                   <li><a href="/students/create-form" data-th-href="@{/students/create-form}" data-th-utext="#{label_create_entity(#{label_student})}">Create Student</a></li>
 	                  <li><a href="/students" data-th-href="@{/students}" data-th-utext="#{label_list_entity(#{label_student_plural})}">List Student</a></li>
+                      <li><a href="/students/search/byFirstNameAndLastName/search-form" data-th-href="@{/students/search/byFirstNameAndLastName/search-form}" data-th-text="#{label_search_entity(findByFirstNameAndLastName)}" id="StudentfindByFirstNameAndLastName">Search findByFirstNameAndLastName</a></li>
                  </ul>
                 </li>
               </ul>
