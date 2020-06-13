@@ -7,14 +7,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Version;
-import javax.validation.constraints.NotNull;
+import java.util.Date;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import org.springframework.format.annotation.DateTimeFormat;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
+import org.springframework.roo.addon.jpa.annotations.entity.JpaRelationType;
+import org.springframework.roo.addon.jpa.annotations.entity.RooJpaRelation;
 
 /**
- * = Course
+ * = Student
  TODO Auto-generated class documentation
  *
  */
@@ -22,7 +27,7 @@ import javax.persistence.ManyToMany;
 @RooToString
 @RooJpaEntity
 @RooEquals(isJpaEntity = true)
-public class Course {
+public class Student {
 
     /**
      * TODO Auto-generated attribute documentation
@@ -43,13 +48,27 @@ public class Course {
      * TODO Auto-generated attribute documentation
      *
      */
-    @NotNull
-    private String courseName;
+    private String firstName;
 
     /**
      * TODO Auto-generated attribute documentation
      *
      */
-    @ManyToMany(fetch = FetchType.LAZY)
-    private Set<Student> students = new HashSet<Student>();
+    private String lastName;
+
+    /**
+     * TODO Auto-generated attribute documentation
+     *
+     */
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(style = "M-")
+    private Date birthdate;
+
+    /**
+     * TODO Auto-generated attribute documentation
+     *
+     */
+    @ManyToMany(cascade = { javax.persistence.CascadeType.MERGE, javax.persistence.CascadeType.PERSIST }, fetch = FetchType.LAZY, mappedBy = "students")
+    @RooJpaRelation(type = JpaRelationType.AGGREGATION)
+    private Set<Course> registeredCourses = new HashSet<Course>();
 }

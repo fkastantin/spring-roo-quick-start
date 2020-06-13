@@ -3,3 +3,9 @@ project setup --topLevelPackage com.app
 jpa setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY
 entity jpa --class ~.model.Course
 field string --fieldName courseName --notNull
+entity jpa --class ~.model.Student 
+field string --fieldName firstName
+// [failed] field string --fieldName firstName --notNull 
+field string --fieldName lastName
+field date --fieldName birthdate --type java.util.Date
+field set --fieldName registeredCourses --type ~.model.Course --cardinality MANY_TO_MANY 

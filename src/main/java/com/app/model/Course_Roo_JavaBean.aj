@@ -4,7 +4,9 @@
 package com.app.model;
 
 import com.app.model.Course;
+import com.app.model.Student;
 import java.util.Objects;
+import java.util.Set;
 
 privileged aspect Course_Roo_JavaBean {
     
@@ -65,6 +67,26 @@ privileged aspect Course_Roo_JavaBean {
      */
     public Course Course.setCourseName(String courseName) {
         this.courseName = courseName;
+        return this;
+    }
+    
+    /**
+     * Gets students value
+     * 
+     * @return Set
+     */
+    public Set<Student> Course.getStudents() {
+        return this.students;
+    }
+    
+    /**
+     * Sets students value
+     * 
+     * @param students
+     * @return Course
+     */
+    public Course Course.setStudents(Set<Student> students) {
+        this.students = students;
         return this;
     }
     
