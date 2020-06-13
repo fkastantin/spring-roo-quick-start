@@ -24,6 +24,7 @@
     <asciidoclet.version>1.5.4</asciidoclet.version>
     <spring-boot.version>1.4.1.RELEASE</spring-boot.version>
   <springlets.version>1.2.0.RELEASE</springlets.version>
+    <tracee.version>1.1.2</tracee.version>
     </properties>
 
   <repositories>
@@ -78,6 +79,16 @@
                 <groupId>org.springframework.roo</groupId>
                 <artifactId>org.springframework.roo.querydsl.processor</artifactId>
                 <version>2.0.0.RELEASE</version>
+            </dependency>
+        <dependency>
+                <groupId>io.tracee.binding</groupId>
+                <artifactId>tracee-springmvc</artifactId>
+                <version>${tracee.version}</version>
+            </dependency>
+        <dependency>
+                <groupId>io.springlets</groupId>
+                <artifactId>springlets-boot-starter-web</artifactId>
+                <version>${springlets.version}</version>
             </dependency>
         </dependencies>
   </dependencyManagement>
@@ -164,6 +175,22 @@
     <dependency>
             <groupId>org.springframework.roo</groupId>
             <artifactId>org.springframework.roo.querydsl.processor</artifactId>
+        </dependency>
+    <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
+    <dependency>
+            <groupId>io.tracee.binding</groupId>
+            <artifactId>tracee-springmvc</artifactId>
+        </dependency>
+    <dependency>
+            <groupId>io.springlets</groupId>
+            <artifactId>springlets-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
 
