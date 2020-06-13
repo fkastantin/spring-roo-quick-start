@@ -13,3 +13,4 @@ repository jpa --all
 service --all 
 web mvc setup 
 web mvc view setup --type THYMELEAF 
+web mvc controller --all --responseType THYMELEAF 

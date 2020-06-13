@@ -4,6 +4,10 @@
 package com.app.config.jackson;
 
 import com.app.config.jackson.DomainModelModule;
+import com.app.model.Course;
+import com.app.model.Student;
+import com.app.web.CourseJsonMixin;
+import com.app.web.StudentJsonMixin;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import org.springframework.boot.jackson.JsonComponent;
 
@@ -20,6 +24,8 @@ privileged aspect DomainModelModule_Roo_DomainModelModule {
     public DomainModelModule.new() {
         // Mixin registration
         
+        setMixInAnnotation(Course.class, CourseJsonMixin.class);
+        setMixInAnnotation(Student.class, StudentJsonMixin.class);
     }
 
 }
