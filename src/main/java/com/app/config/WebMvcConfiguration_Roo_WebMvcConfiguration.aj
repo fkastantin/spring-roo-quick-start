@@ -6,6 +6,7 @@ package com.app.config;
 import com.app.config.WebMvcConfiguration;
 import io.tracee.binding.springmvc.TraceeInterceptor;
 import java.lang.Override;
+import java.util.Locale;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -41,6 +42,7 @@ privileged aspect WebMvcConfiguration_Roo_WebMvcConfiguration {
     @Bean
     public LocaleResolver WebMvcConfiguration.localeResolver() {
         SessionLocaleResolver localeResolver = new SessionLocaleResolver();
+        localeResolver.setDefaultLocale(new Locale("en"));
         return localeResolver;
     }
     

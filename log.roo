@@ -12,3 +12,4 @@ field set --fieldName registeredCourses --type ~.model.Course --cardinality MANY
 repository jpa --all
 service --all 
 web mvc setup 
+web mvc view setup --type THYMELEAF 
