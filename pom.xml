@@ -69,6 +69,11 @@
                 <artifactId>springlets-data-commons</artifactId>
                 <version>${springlets.version}</version>
             </dependency>
+        <dependency>
+                <groupId>io.springlets</groupId>
+                <artifactId>springlets-context</artifactId>
+                <version>${springlets.version}</version>
+            </dependency>
         </dependencies>
   </dependencyManagement>
 
@@ -138,6 +143,14 @@
     <dependency>
             <groupId>io.springlets</groupId>
             <artifactId>springlets-data-commons</artifactId>
+        </dependency>
+    <dependency>
+            <groupId>io.springlets</groupId>
+            <artifactId>springlets-context</artifactId>
+        </dependency>
+    <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
         </dependency>
     </dependencies>
 
