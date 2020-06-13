@@ -10,3 +10,4 @@ field string --fieldName lastName
 field date --fieldName birthdate --type java.util.Date
 field set --fieldName registeredCourses --type ~.model.Course --cardinality MANY_TO_MANY 
 repository jpa --all
+service --all 
