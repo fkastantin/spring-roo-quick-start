@@ -23,7 +23,8 @@
     <aspectj.plugin.version>1.8</aspectj.plugin.version>
     <asciidoclet.version>1.5.4</asciidoclet.version>
     <spring-boot.version>1.4.1.RELEASE</spring-boot.version>
-  </properties>
+  <springlets.version>1.2.0.RELEASE</springlets.version>
+    </properties>
 
   <repositories>
     <!-- Maven Snapshots Repository -->
@@ -58,7 +59,17 @@
         <scope>provided</scope>
       </dependency>
 
-    </dependencies>
+    <dependency>
+                <groupId>io.springlets</groupId>
+                <artifactId>springlets-data-jpa</artifactId>
+                <version>${springlets.version}</version>
+            </dependency>
+        <dependency>
+                <groupId>io.springlets</groupId>
+                <artifactId>springlets-data-commons</artifactId>
+                <version>${springlets.version}</version>
+            </dependency>
+        </dependencies>
   </dependencyManagement>
 
   <dependencies>
@@ -106,7 +117,29 @@
 
     <!-- Dependencies added by Spring Roo -->
 
-  </dependencies>
+  <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    <dependency>
+            <groupId>io.springlets</groupId>
+            <artifactId>springlets-data-jpa</artifactId>
+        </dependency>
+    <dependency>
+            <groupId>io.springlets</groupId>
+            <artifactId>springlets-data-commons</artifactId>
+        </dependency>
+    </dependencies>
 
   <build>
 
