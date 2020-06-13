@@ -4,10 +4,9 @@ jpa setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY
 entity jpa --class ~.model.Course
 field string --fieldName courseName --notNull
 entity jpa --class ~.model.Student 
-field string --fieldName firstName
-// [failed] field string --fieldName firstName --notNull 
-field string --fieldName lastName
-field date --fieldName birthdate --type java.util.Date
+field string --fieldName firstName --notNull
+field string --fieldName lastName --notNull
+field date --fieldName birthdate --type java.util.Date --notNull
 field set --fieldName registeredCourses --type ~.model.Course --cardinality MANY_TO_MANY 
 repository jpa --all
 service --all 
@@ -21,3 +20,4 @@ field string --fieldName lastName
 // Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-06-13 21:31:00
 finder add --entity ~.model.Student --name findByFirstNameAndLastName --formBean ~.dto.StudentSearchDto
 web mvc finder --entity ~.model.Student --responseType THYMELEAF 
+web mvc detail --entity ~.model.Student --responseType THYMELEAF --field registeredCourses
