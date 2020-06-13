@@ -14,3 +14,4 @@ service --all
 web mvc setup 
 web mvc view setup --type THYMELEAF 
 web mvc controller --all --responseType THYMELEAF 
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-06-13 21:26:10
